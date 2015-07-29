@@ -140,9 +140,8 @@ class FusionTablesV2
     end
   end
 
-  def import_rows(table_id, file:, delimiter: ",", content_type: 'application/octet-stream', header: true)
-    start_line = ( header ? 0 : 1 )
-    client.import_rows("1YfKucvH1uRG6RBlJhF4XaCvCZkIIgOLUCBi8SUOA", delimiter: ";", upload_source: file, content_type: content_type, start_line: start_line)
+  def import_rows(table_id, file:, delimiter: ",", content_type: 'application/octet-stream', start_line: 0)
+    client.import_rows(table_id, delimiter: delimiter, upload_source: file, content_type: content_type, start_line: start_line)
   end
 
   def tables_hash
