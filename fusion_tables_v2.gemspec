@@ -10,4 +10,5 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://rubygems.org/gems/fusion_tables_v2'
   s.license     = 'MIT'
   s.add_dependency 'google-api-client', '0.9.pre2'
+  s.add_development_dependency 'pry'
 end
