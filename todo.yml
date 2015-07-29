@@ -1,0 +1,3 @@
+tests:
+  - checking client, authorization, key_path after initialize
+  - list_tables
