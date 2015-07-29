@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'fusion_tables_v2'
-  s.version     = '0.0.0'
-  s.date        = '2015-07-28'
+  s.version     = '0.0.1'
+  s.date        = '2015-07-29'
   s.summary     = 'Fusion Tables API wrapper'
   s.description = 'This gem adding methods to interact with Fusion Tables like DB'
   s.authors     = ['Rozenkin Denis']

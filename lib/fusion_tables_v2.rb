@@ -117,10 +117,37 @@ class FusionTablesV2
   end
 
   def drop_table_by(name:)
-    tables = client.list_tables.items.map { |t| { name: t.name, id: t.table_id } }
+    tables = tables_hash 
     raise ArgumentError.new('There are more than 1 table with this name') if tables.count { |el| el[:name] == name } > 1
     table_id = tables.find { |el| el[:name] == name }[:id]
     drop_table(table_id)
+  end
+
+  def get_table(table_id)
+    client.get_table(table_id)
+  rescue Google::Apis::ClientError
+    "Table doesn't exist"
+  end
+
+  def get_table_by(name:)
+    tables = tables_hash 
+    if tables.count { |el| el[:name] == name } > 1
+      client.list_tables.items.select {|t| t.name == 'my_table' }
+    elsif tables.count { |el| el[:name] == name } == 1
+      client.get_table(tables.find { |el| el[:name] == name }[:id])
+    else
+      "Table doesn't exist"
+    end
+  end
+
+  def import_rows(table_id, file:, delimiter: ",", content_type: 'application/octet-stream', header: true)
+    start_line = ( header ? 0 : 1 )
+    client.import_rows("1YfKucvH1uRG6RBlJhF4XaCvCZkIIgOLUCBi8SUOA", delimiter: ";", upload_source: file, content_type: content_type, start_line: start_line)
+  end
+
+  def tables_hash
+    items = client.list_tables.items || []
+    items.map { |t| { name: t.name, id: t.table_id } }
   end
 
   # baseColumn	object	Optional identifier of the base column. If present, this column is derived from the specified base column.	

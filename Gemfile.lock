@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/ldonnet/rgeo-kml.git
+  revision: 1ccd1e862aed187bcccd748d30057358326fe34b
+  specs:
+    rgeo-kml (0.0.1.nonrelease)
+      rgeo (>= 0.3.13)
+
 PATH
   remote: .
   specs:
@@ -62,6 +69,9 @@ GEM
       nokogiri
       uber (~> 0.0.7)
     retriable (2.0.2)
+    rgeo (0.3.20)
+    rgeo-geojson (0.3.1)
+      rgeo (~> 0.3)
     signet (0.6.1)
       addressable (~> 2.3)
       extlib (~> 0.9)
@@ -82,3 +92,6 @@ DEPENDENCIES
   fusion_tables_v2!
   google-api-client (= 0.9.pre2)
   pry
+  rgeo
+  rgeo-geojson
+  rgeo-kml!

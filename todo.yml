@@ -3,3 +3,18 @@ tests:
   - list_tables
   - create table test
   - create column test
+
+features:
+  table:
+    - Copy table
+    - Import rows
+    - Import table
+    - Patch
+    - Replace rows
+    - Update
+  column:
+    - delete
+    - get
+    - list
+    - patch
+    - update
