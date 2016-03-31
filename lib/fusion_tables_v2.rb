@@ -76,7 +76,7 @@ class FusionTablesV2
 
   def get_authorization(key_path)
     ENV['GOOGLE_APPLICATION_CREDENTIALS'] = key_path
-    scopes =  ['https://www.googleapis.com/auth/fusiontables']
+    scopes = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/fusiontables']
     authorization = Google::Auth.get_application_default(scopes)
     authorization.fetch_access_token!
     authorization
